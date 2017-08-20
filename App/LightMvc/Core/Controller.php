@@ -1,0 +1,10 @@
+<?php
+
+namespace App\LightMvc\Core;
+
+class Controller
+{
+    public function view($view, $data = '') {
+        require_once '../app/views/' . $view . '.php';
+    }
+}

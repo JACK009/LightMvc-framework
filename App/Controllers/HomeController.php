@@ -2,8 +2,8 @@
 
 namespace App\Controllers;
 
-use App\LightMvc\Core\Controller;
 use App\Models\User;
+use LightMvc\Core\Controller;
 
 class HomeController extends Controller
 {

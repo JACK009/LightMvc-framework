@@ -1,5 +1,5 @@
 <?php
-require_once '../App/LightMvc/Core/App.php';
-define('ROOTDIRECTORY', __DIR__);
-$app = \App\LightMvc\Core\App::getInstance();
+require_once '../LightMvc/Core/App.php';
+
+$app = \LightMvc\Core\App::getInstance();
 $app->run();

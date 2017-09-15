@@ -1,5 +1,8 @@
 <?php
+
+use LightMvc\Core\App;
+
 require_once '../LightMvc/Core/App.php';
 
-$app = \LightMvc\Core\App::getInstance();
+$app = App::getInstance();
 $app->run();

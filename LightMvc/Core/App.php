@@ -3,12 +3,13 @@ namespace LightMvc\Core;
 
 require_once 'ClassLoader.php';
 
-use App\Config\Config;
+use App\Config\Config AS AppConfig;
 
 class App {
     protected $controller;
     protected $method;
     protected $params = [];
+    private $coreConfig;
 
     private static $_instance = null;
 
@@ -23,8 +24,8 @@ class App {
         }
 
         return [
-            'Home',
-            'index'
+            $this->coreConfig->indexPage['controller'],
+            $this->coreConfig->indexPage['action']
         ];
     }
 
@@ -53,14 +54,15 @@ class App {
     }
 
     private function config(): void {
-        $GLOBALS['config'] = new Config();
+        $this->coreConfig = new Config();
+        $GLOBALS['config'] = new AppConfig();
     }
 
     private function dispatch(): void {
         $url = $this->parseUrl();
 
         if(file_exists(ROOTDIRECTORY . 'App' . DS .'Controllers' . DS . ucfirst($url[0]) . 'Controller.php')){
-            $this->controller = 'App\Controllers\\' . ucfirst($url[0]) . 'Controller';
+            $this->controller = 'App' . DS . 'Controllers' . DS . ucfirst($url[0]) . 'Controller';
             unset($url[0]);
         }
 

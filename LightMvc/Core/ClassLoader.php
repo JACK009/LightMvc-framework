@@ -16,6 +16,7 @@ final class ClassLoader {
         $file = "{$dir}{$className}.php";
 
         if (file_exists($file) && is_readable($file)) {
+            /** @noinspection PhpIncludeInspection */
             require_once $file;
         }
     }

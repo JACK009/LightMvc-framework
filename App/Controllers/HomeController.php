@@ -7,7 +7,7 @@ use LightMvc\Core\Controller;
 
 class HomeController extends Controller
 {
-    public function indexAction() {
+    public function indexAction(): void {
         $user = new User();
         $user->name = 'test';
 
